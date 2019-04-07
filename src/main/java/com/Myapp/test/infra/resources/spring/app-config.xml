@@ -23,8 +23,22 @@
 	<context:component-scan base-package="com.Myapp.test"  scoped-proxy="targetClass" />  
  	<task:annotation-driven />
  	
-	 <!--  4 xml by wclee -->
+	 <context:property-placeholder 
+		location="classpath:com/Myapp/test/infra/resources/properties/spring-config.properties,
+					classpath:com/Myapp/test/infra/resources/properties/jdbc.properties"/>
 
+	<!-- ========================= AOP설정 ============================= -->
 
+	<!-- a : @Aspect 어노테이션이 적용된 빈 객체를 Aspect로 사용하게 된다. -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- <bean id="executionLoggingAspect" class="com.skplanet.infra.commons.spring.aop.ExecutionLoggingAspect"
+		p:loggerName="${logger.executionLogger}"
+	 /> -->
+	 <!-- a : Aspect 클래스를 빈으로 등록!!!!! -->
+	  <bean id="executionLoggingAspect" class="com.Myapp.test.infra.commons.spring.aop.ExecutionLoggingAspect"
+		p:loggerName="${logger.executionLogger}"
+	 />  
+	 
 </beans>
 
