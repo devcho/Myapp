@@ -19,9 +19,9 @@
 	<!-- <resources mapping="/resources/**" location="/resources/" /> -->
 	<resources mapping="/**" location="/resources/" />
 	
-	<resources location="/WEB-INF/views/images/" mapping="/images/**" />
-	<resources location="/WEB-INF/views/css/" mapping="/css/**" />
-	<resources location="/WEB-INF/views/js/" mapping="/js/**" />
+	<resources location="/resources/images/" mapping="/images/**" />
+	<resources location="/resources/css/" mapping="/css/**" />
+	<resources location="/resources/js/" mapping="/js/**" />
     
 	
 </beans:beans>
