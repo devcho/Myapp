@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" 
+						"http://tiles.apache.org/dtds/tiles-config_2_1.dtd"> 
+<tiles-definitions> 
+	<definition name="layouts-tiles" template="/WEB-INF/tiles/layout/layout.jsp"> 
+		<put-attribute name="header" value="/WEB-INF/tiles/tile/header.jsp" /> 
+		<put-attribute name="content" value="" /> 
+		<put-attribute name="footer" value="/WEB-INF/tiles/tile/footer.jsp" /> 
+	</definition> 
+	
+	<definition name="main-tiles" template="/WEB-INF/tiles/layout/mainlayout.jsp"> 
+		<put-attribute name="header" value="/WEB-INF/tiles/tile/header.jsp" /> 
+		<put-attribute name="content" value="" /> 
+		<put-attribute name="footer" value="/WEB-INF/tiles/tile/footer.jsp" /> 
+	</definition> 
+	
+	
+	<definition name="*.tiles" extends="layouts-tiles"> 
+		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp" /> 
+	</definition> 
+	<definition name="*/*.tiles" extends="layouts-tiles"> 
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition> 
+	<definition name="*/*/*.tiles" extends="layouts-tiles">
+		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" /> 
+	</definition> 
+	
+	 <!-- 컨트롤러에서 리턴해 주는 뷰이름,본예제는 hello  -->
+
+
+	<definition name="main" extends="main-tiles">     
+	    <put-attribute name="title" value="프로젝트" />      
+	    <put-attribute name="content" value="/WEB-INF/views/main.jsp" />     
+	</definition>   
+
+	
+	
+</tiles-definitions>
+
