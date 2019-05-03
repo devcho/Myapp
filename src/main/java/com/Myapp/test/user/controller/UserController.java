@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.Myapp.test.util.userutil.*;
+
 /**
  * 1. className : UserController.java 
  * 2. Comment   : 회원가입, 로그인 및 로그아웃 관련 Controller 
@@ -15,11 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller 
 @RequestMapping("/main/user/*")
-public class UserController {
+public class UserController extends ExamTest {
+	
+	int Calcresult = 0; 
 	
 	@RequestMapping
 	public String mainPage(HttpServletRequest request, HttpSession session, Model model) throws Exception {
 		
+		Calcresult = Calc(1, 2);
+		
+		
+		System.out.println("Calcresult = " + Calcresult);
 		return "/main/user/main";
 	}	
 
